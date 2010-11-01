@@ -1,0 +1,39 @@
+<uml>
+   <greenVersion="30500"/>
+   <type>
+      <name="=eda040_inl/src<client{Image.java[Image"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="335"/>
+      <y="266"/>
+   </type>
+   <type>
+      <name="=eda040_inl/src<client{CameraHandler.java[CameraHandler"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="57"/>
+      <y="35"/>
+   </type>
+   <type>
+      <name="=eda040_inl/src<client{CameraConnection.java[CameraConnection"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="330"/>
+      <y="37"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.composition.CompositionPart"/>
+      <sourceType="=eda040_inl/src<client{CameraConnection.java[CameraConnection"/>
+      <targetType="=eda040_inl/src<client{Image.java[Image"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.association.AssociationPart"/>
+      <sourceType="=eda040_inl/src<client{CameraConnection.java[CameraConnection"/>
+      <targetType="=eda040_inl/src<client{CameraHandler.java[CameraHandler"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+</uml>
+
