@@ -2,21 +2,37 @@ package client;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author
+ * 
+ */
 public class CameraHandler {
-	
+
 	private ArrayList<CameraConnection> connections;
 	private boolean isMovieMode;
-	
-	public CameraHandler(){
+
+	/**
+	 * 
+	 */
+	public CameraHandler() {
 		connections = new ArrayList<CameraConnection>();
 	}
-	
-	
-	public void connect(String host, int port){
+
+	/**
+	 * 
+	 * @param host
+	 * @param port
+	 */
+	public void connect(String host, int port) {
+		;
 	}
-	
-	
-	public boolean checkMotion(){
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean checkMotion() {
 		return true;
 	}
 

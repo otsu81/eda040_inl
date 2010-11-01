@@ -1,14 +1,16 @@
 package server;
 
-public class CommunicationThread extends Thread{
-	
-	private boolean mode;
-	
-	public void run(){
-		
-	}
+/**
+ * 
+ * @author
+ * 
+ */
+public class CommunicationThread extends Thread {
 
-	public CommunicationThread() {
+	private boolean mode;
+
+	public void run() {
+
 	}
 
 }

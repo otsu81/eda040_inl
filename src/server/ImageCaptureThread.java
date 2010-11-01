@@ -1,14 +1,24 @@
 package server;
 
-public class ImageCaptureThread extends Thread{
-	
-	private ImageBuffer imageBuffer;
-	public void run(){
-		
-	}
+/**
+ * 
+ * @author
+ * 
+ */
+public class ImageCaptureThread extends Thread {
 
-	public ImageCaptureThread(ImageBuffer imageBuffer2) {
-		imageBuffer = imageBuffer2;
+	private ImageBuffer imageBuffer;
+
+	/**
+	 * 
+	 * @param imageBuffer
+	 */
+	public ImageCaptureThread(ImageBuffer imageBuffer) {
+		imageBuffer = imageBuffer;
+	}
+	
+	public void run() {
+
 	}
 
 }
