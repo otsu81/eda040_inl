@@ -1,5 +1,7 @@
 package client;
 
+import java.net.Socket;
+
 /**
  * 
  * @author
@@ -7,7 +9,7 @@ package client;
  */
 public class CameraConnection extends Thread {
 
-	private String socket;
+	private Socket socket;
 	private CameraHandler ch;
 	private Image image;
 
