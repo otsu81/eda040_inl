@@ -1,13 +1,15 @@
 package client;
 
-import java.util.Observable;
 
 /**
+ * Represents an image (frame) from a camera. Apart from JPEG bytes, this class
+ * contains additional metadata such as timestamp and motion-detection data.
+ * 
  * 
  * @author
  * 
  */
-public class Image extends Observable {
+public class Image {
 
 	private boolean motion;
 	private long timestamp;

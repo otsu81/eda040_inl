@@ -3,6 +3,9 @@ package client;
 import java.util.ArrayList;
 
 /**
+ * A class representing a number of camera connections.
+ * 
+ * Has the responsibility of synchronizing streams from different cameras.
  * 
  * @author
  * 
