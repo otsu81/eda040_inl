@@ -29,6 +29,10 @@ public class CameraConnection extends Thread {
 		ch = handler;
 		buffer = new DelayableImageBuffer();
 	}
+	
+	public DelayableImageBuffer getBuffer() {
+		return buffer;
+	}
 
 	@Override
 	public void run() {

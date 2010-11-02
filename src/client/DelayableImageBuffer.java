@@ -10,21 +10,26 @@ import java.util.LinkedList;
  * 
  */
 public class DelayableImageBuffer {
+	private static final int MAX_SIZE = 100;
+	
 	private LinkedList<Image> buffer;
 
 	/**
 	 * 
 	 * @param im
 	 */
-	public void offer(Image im) {
-
+	public synchronized void offer(Image im) {
+		buffer.offer(im);
+		if (buffer.size() > MAX_SIZE) {
+			buffer.pop();
+		}
 	}
 
 	/**
 	 * 
 	 * @return
 	 */
-	public Image getCurrent() {
+	public synchronized Image getCurrent() {
 		return null;
 	}
 
@@ -32,7 +37,7 @@ public class DelayableImageBuffer {
 	 * 
 	 * @param delay
 	 */
-	public void setDelay(int delay) {
+	public synchronized void setDelay(int delay) {
 
 	}
 
