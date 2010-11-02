@@ -1,10 +1,11 @@
 package server;
 
 /**
- * 
+ * A class that handle the capture of images from a camera periodically.
  * @author
  * 
  */
+
 public class ImageCaptureThread extends Thread {
 
 	private ImageBuffer imageBuffer;
@@ -19,6 +20,7 @@ public class ImageCaptureThread extends Thread {
 	
 	public void run() {
 
+		
 	}
 
 }

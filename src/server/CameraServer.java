@@ -5,10 +5,15 @@ import java.net.Socket;
 import se.lth.cs.fakecamera.MotionDetector;
 
 /**
+ * A class that communicates through a socket with a CameraConnection object.
+ * 
  * 
  * @author
  * 
  */
+
+
+
 public class CameraServer {
 
 	private ImageBuffer imgbfr;
