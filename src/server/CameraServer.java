@@ -26,12 +26,14 @@ public class CameraServer {
 	private Socket socket;
 	private ImageCaptureThread ict;
 	private CommunicationThread ct;
+	private String hostAddress;
+	private int hostPort;
 
 	/**
 	 * 
 	 */
 	public CameraServer() {
-		ict = new ImageCaptureThread(imgbfr);
+		ict = new ImageCaptureThread(imgbfr, hostAddress, hostPort);
 		ct = new CommunicationThread(socket);
 
 	}

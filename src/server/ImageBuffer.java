@@ -1,5 +1,7 @@
 package server;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author
@@ -10,4 +12,16 @@ package server;
 
 public class ImageBuffer {
 
+	private ArrayList<ServerImage> images;
+	
+	public ImageBuffer(){
+		images = new ArrayList<ServerImage>();
+	}
+	
+	public void addImage(ServerImage image){
+		
+		images.add(image);
+		
+	}
+	
 }
