@@ -16,8 +16,6 @@ import se.lth.cs.fakecamera.MotionDetector;
  * 
  */
 
-
-
 public class CameraServer {
 
 	private ImageBuffer imgbfr;
