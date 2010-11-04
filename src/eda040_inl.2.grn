@@ -4,8 +4,8 @@
       <name="=eda040_inl/src<server{ImageBuffer.java[ImageBuffer"/>
       <height="-1"/>
       <width="-1"/>
-      <x="466"/>
-      <y="217"/>
+      <x="513"/>
+      <y="342"/>
    </type>
    <type>
       <name="=eda040_inl/src<server{CameraServer.java[CameraServer"/>
@@ -18,8 +18,8 @@
       <name="=eda040_inl/src<server{ImageCaptureThread.java[ImageCaptureThread"/>
       <height="-1"/>
       <width="-1"/>
-      <x="461"/>
-      <y="63"/>
+      <x="460"/>
+      <y="87"/>
    </type>
    <type>
       <name="=eda040_inl/src<server{CommunicationThread.java[CommunicationThread"/>
@@ -38,14 +38,14 @@
    <relationship>
       <class="edu.buffalo.cse.green.relationship.composition.CompositionPart"/>
       <sourceType="=eda040_inl/src<server{CameraServer.java[CameraServer"/>
-      <targetType="=eda040_inl/src<server{CommunicationThread.java[CommunicationThread"/>
+      <targetType="=eda040_inl/src<server{ImageCaptureThread.java[ImageCaptureThread"/>
       <bendpoints>
       </bendpoints>
    </relationship>
    <relationship>
       <class="edu.buffalo.cse.green.relationship.composition.CompositionPart"/>
       <sourceType="=eda040_inl/src<server{CameraServer.java[CameraServer"/>
-      <targetType="=eda040_inl/src<server{ImageCaptureThread.java[ImageCaptureThread"/>
+      <targetType="=eda040_inl/src<server{CommunicationThread.java[CommunicationThread"/>
       <bendpoints>
       </bendpoints>
    </relationship>
