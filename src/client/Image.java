@@ -7,7 +7,6 @@ package client;
  * 
  * 
  * @author
- * charlie lŠgger in ett testmeddelande
  * 
  */
 public class Image {
