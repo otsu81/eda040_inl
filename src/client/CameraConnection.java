@@ -2,6 +2,8 @@ package client;
 
 import java.net.Socket;
 
+import java.net.Socket;
+
 /**
  * This class represents a connection to a camera server.
  * 
