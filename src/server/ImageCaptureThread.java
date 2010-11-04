@@ -38,7 +38,5 @@ public class ImageCaptureThread extends Thread {
 			imageBuffer.addImage(new ServerImage(data, readBytes));
 			
 		}
-		
 	}
-
 }

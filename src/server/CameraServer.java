@@ -1,5 +1,6 @@
 package server;
 
+import java.net.ServerSocket;
 import java.net.Socket;
 
 import se.lth.cs.fakecamera.MotionDetector;
@@ -21,7 +22,7 @@ public class CameraServer {
 	private ImageBuffer imgbfr;
 	private boolean mode;
 	private MotionDetector md;
-	private Socket socket;
+	private ServerSocket socket;
 	private ImageCaptureThread ict;
 	private CommunicationThread ct;
 	private String hostAddress;
@@ -32,7 +33,7 @@ public class CameraServer {
 	 */
 	public CameraServer() {
 		ict = new ImageCaptureThread(imgbfr, hostAddress, hostPort);
-		ct = new CommunicationThread(socket);
+		ct = new CommunicationThread(socket, imgbfr);
 
 	}
 

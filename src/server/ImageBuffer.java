@@ -1,27 +1,34 @@
 package server;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
- * 
+ * A class to store the images before the CommunicationThread sends them to the client package
  * @author
  * 
  */
 
-/** A class to store the images before the CommunicationThread sends them to the client package*/
-
 public class ImageBuffer {
 
-	private ArrayList<ServerImage> images;
+	private LinkedList<ServerImage> images;
 	
 	public ImageBuffer(){
-		images = new ArrayList<ServerImage>();
+		images = new LinkedList<ServerImage>();
 	}
 	
 	public void addImage(ServerImage image){
 		
-		images.add(image);
+		images.addLast(image);
 		
+	}
+	
+	public ServerImage getImage(){
+		return images.poll();
+	}
+	
+	public boolean isEmpty(){
+		
+		return images.isEmpty();
 	}
 	
 }
