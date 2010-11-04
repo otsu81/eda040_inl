@@ -5,6 +5,7 @@ import java.util.Observable;
 /**
  * 
  * @author
+ * charlie lŠgger in ett testmeddelande
  * 
  */
 public class Image extends Observable {
