@@ -3,6 +3,9 @@ package client;
 import java.util.ArrayList;
 
 /**
+ * A class representing a number of camera connections.
+ * 
+ * Has the responsibility of synchronizing streams from different cameras.
  * 
  * @author
  * 
@@ -24,8 +27,8 @@ public class CameraHandler {
 	 * @param host
 	 * @param port
 	 */
-	public void connect(String host, int port) {
-		;
+	public DelayableImageBuffer connect(String host, int port) {
+		return null;
 	}
 
 	/**
@@ -35,5 +38,11 @@ public class CameraHandler {
 	public boolean checkMotion() {
 		return true;
 	}
-
+	
+	/**
+	 * 
+	 */
+	public void synchronizeBuffers() {
+		
+	}
 }
