@@ -9,13 +9,13 @@ package client;
  * @author
  * 
  */
-public class Image {
+public class CameraImage {
 
 	private boolean motion;
 	private long timestamp;
 	private byte[] imagedata;
 	
-	public Image(byte[] data) {
+	public CameraImage(byte[] data) {
 		imagedata = data;
 	}
 
