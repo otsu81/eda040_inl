@@ -1,5 +1,7 @@
 package client;
 
+import gui.CameraViewer;
+
 import java.util.ArrayList;
 
 import org.apache.log4j.PropertyConfigurator;

@@ -53,7 +53,7 @@ public class CameraConnection extends Thread {
 			
 			while (true) {
 				int n = dis.readInt();
-				//log.debug("Read an int: " + n);
+				log.debug("Read an int: " + n);
 				int read = 0;
 				int totRead = 0;
 				byte bytes[] = new byte[1024];
@@ -64,7 +64,7 @@ public class CameraConnection extends Thread {
 					totRead += read;
 					toRead = Math.min(bytes.length, n-totRead);
 				}
-				//log.debug("Total read: " + totRead + " size: " + n);
+				log.debug("Total read: " + totRead + " size: " + n);
 				baos.close();
 				buffer.offer(new CameraImage(baos.toByteArray()));
 			}
