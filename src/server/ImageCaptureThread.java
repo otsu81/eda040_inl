@@ -1,6 +1,8 @@
 package server;
 
 
+import org.apache.log4j.Logger;
+
 import se.lth.cs.fakecamera.*;
 
 /**
@@ -16,6 +18,8 @@ public class ImageCaptureThread extends Thread {
 	private byte[] data;
 	private int readBytes;
 	
+	private Logger log = Logger.getLogger(ImageCaptureThread.class);
+	
 
 	/**
 	 * 
@@ -30,7 +34,8 @@ public class ImageCaptureThread extends Thread {
 	}
 	
 	public void run() {
-
+		log.debug("Starting image capture");
+		
 		long t, diff;
 		t = System.currentTimeMillis();
 		while(true) {
@@ -41,6 +46,7 @@ public class ImageCaptureThread extends Thread {
 			try {
 				Thread.sleep(diff);
 			} catch (InterruptedException e) {
+				log.warn("Interrupted!");
 				// TODO: handle exception
 			}
 		}
