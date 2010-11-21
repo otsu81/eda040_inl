@@ -2,6 +2,8 @@ package client;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.PropertyConfigurator;
+
 /**
  * A class representing a number of camera connections.
  * 
@@ -10,7 +12,7 @@ import java.util.ArrayList;
  * @author
  * 
  */
-public class CameraHandler {
+public class CameraClient {
 
 	private ArrayList<CameraConnection> connections;
 	private boolean isMovieMode;
@@ -18,7 +20,8 @@ public class CameraHandler {
 	/**
 	 * 
 	 */
-	public CameraHandler() {
+	public CameraClient() {
+		PropertyConfigurator.configure("log4j.conf");
 		connections = new ArrayList<CameraConnection>();
 	}
 
@@ -28,7 +31,11 @@ public class CameraHandler {
 	 * @param port
 	 */
 	public DelayableImageBuffer connect(String host, int port) {
-		return null;
+		DelayableImageBuffer buffer = new DelayableImageBuffer();
+		CameraConnection conn = new CameraConnection(buffer, host, port);
+		connections.add(conn);
+		conn.start();
+		return buffer;
 	}
 
 	/**
@@ -43,6 +50,12 @@ public class CameraHandler {
 	 * 
 	 */
 	public void synchronizeBuffers() {
+		
+	}
+	
+	public static void main(String[] args) {
+		CameraClient client = new CameraClient();
+		client.connect("localhost", 12345);
 		
 	}
 }

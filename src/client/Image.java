@@ -14,6 +14,10 @@ public class Image {
 	private boolean motion;
 	private long timestamp;
 	private byte[] imagedata;
+	
+	public Image(byte[] data) {
+		imagedata = data;
+	}
 
 	/**
 	 * 
@@ -36,7 +40,7 @@ public class Image {
 	 * @return
 	 */
 	public byte[] getImagedata() {
-		return null;
+		return imagedata;
 	}
 
 }

@@ -1,6 +1,7 @@
 package server;
 
-import java.net.Socket;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import se.lth.cs.fakecamera.MotionDetector;
 
@@ -16,39 +17,38 @@ import se.lth.cs.fakecamera.MotionDetector;
  * 
  */
 
-
-
 public class CameraServer {
 
 	private ImageBuffer imgbfr;
-	private boolean mode;
+	private ServerMode mode;
 	private MotionDetector md;
-	private Socket socket;
 	private ImageCaptureThread ict;
 	private CommunicationThread ct;
 	private String hostAddress;
 	private int hostPort;
+	private Logger log = Logger.getLogger(CameraServer.class);
 
 	/**
 	 * 
 	 */
 	public CameraServer() {
-		ict = new ImageCaptureThread(imgbfr, hostAddress, hostPort);
-		ct = new CommunicationThread(socket);
-
-	}
-
-	/**
-	 * 
-	 */
-	public void setImageBuffer() {
-
-	}
-
-	/**
-	 * 
-	 */
-	public void getImageBuffer() {
+		PropertyConfigurator.configure("log4j.conf");
+		
+		log.info("Starting server...");
+		
+		imgbfr = new ImageBuffer();
+		hostAddress = "";
+		hostPort = 0;
+		mode = ServerMode.MOVIE;
+		md = new MotionDetector();
+		
+		ict = new ImageCaptureThread(this);
+		ct = new CommunicationThread(this);
+		
+		log.debug("Starting image capture thread");
+		ict.start();
+		log.debug("Starting image sending thread");
+		ct.start();
 
 	}
 
@@ -56,8 +56,25 @@ public class CameraServer {
 	 * 
 	 * @param mode
 	 */
-	public void setMode(boolean mode) {
-
+	public synchronized void setMode(ServerMode mode) {
+		this.mode = mode;
+	}
+	
+	public synchronized int getPort() {
+		return 12345;
 	}
 
+	public synchronized ImageBuffer getImageBuffer() {
+		return imgbfr;
+	}
+
+	public synchronized ServerMode getMode() {
+		return mode;
+	}
+	
+	
+	public static void main(String[] args) {
+		new CameraServer();
+	}
+	
 }
