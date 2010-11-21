@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class CameraViewer extends JFrame implements ActionListener {
@@ -29,6 +30,8 @@ public class CameraViewer extends JFrame implements ActionListener {
 	private JPanel east;
 	private JLabel delayLabel1;
 	private JLabel delayLabel2;
+	private JLabel cam1Status;
+	private JLabel cam2Status;
 
 	public CameraViewer(){
 		
@@ -39,16 +42,15 @@ public class CameraViewer extends JFrame implements ActionListener {
 		east = new JPanel(new GridBagLayout());
 		fillEastPanel();	
 		
-		JPanel mainPanel = new JPanel(new BorderLayout());
-		//mainPanel.setLayout(new GridLayout(1,2));
-		mainPanel.add(west, BorderLayout.WEST);
-		mainPanel.add(east, BorderLayout.EAST);
+		JPanel mainPanel = new JPanel(new GridLayout(1,2));
+		mainPanel.add(west);
+		mainPanel.add(east);
 		add(mainPanel);
 		
 		connectButton1.addActionListener(this);
 		connectButton2.addActionListener(this);
 		
-		setSize(1200, 800);
+		setSize(800, 400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setVisible(true);
@@ -61,22 +63,35 @@ public class CameraViewer extends JFrame implements ActionListener {
 		panel1.setPreferredSize(new Dimension(320, 240));
 		connectButton1 = new JButton("Connect to Camera 1");	
 		delayLabel1 = new JLabel("Delay: ");
+		JLabel camLabel = new JLabel("Camera 1");
+		cam1Status = new JLabel("Offline");
+		cam1Status.setForeground(Color.RED);
 		
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = new Insets(10, 10, 0, 0);
-		c.gridwidth = 2;
+		
+		c.gridwidth = 1;
 		c.gridx = 0;
 		c.gridy = 0;
+		west.add(camLabel, c);
+		
+		c.gridx = 0;
+		c.gridy = 1;
+		west.add(cam1Status, c);
+		
+		c.gridwidth = 2;
+		c.gridx = 0;
+		c.gridy = 2;
 		west.add(panel1, c);
 		
 		c.gridwidth = 1;
 		c.gridx = 0;
-		c.gridy = 1;
+		c.gridy = 3;
 		west.add(connectButton1, c);
 		
 		c.gridx = 0;
-		c.gridy = 2;
+		c.gridy = 4;
 		west.add(delayLabel1, c);
 		
 	}
@@ -84,27 +99,38 @@ public class CameraViewer extends JFrame implements ActionListener {
 		
 		panel2 = new ImagePanel();
 		panel2.setPreferredSize(new Dimension(320, 240));
-		panel2.setBackground(Color.GREEN);
 		connectButton2 = new JButton("Connect to Camera 2");
 		delayLabel2 = new JLabel("Delay: ");
+		JLabel camLabel = new JLabel("Camera 2");
+		cam2Status = new JLabel("Offline");
+		cam2Status.setForeground(Color.RED);
 
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = new Insets(10, 0, 0, 0);
-		c.gridwidth = 2;
+		
+		c.gridwidth = 1;
 		c.gridx = 0;
 		c.gridy = 0;
+		east.add(camLabel, c);
+		
+		c.gridx = 0;
+		c.gridy = 1;
+		east.add(cam2Status, c);
+		
+		c.gridwidth = 2;
+		c.gridx = 0;
+		c.gridy = 2;
 		east.add(panel2, c);
 		
 		c.gridwidth = 1;
 		c.gridx = 0;
-		c.gridy = 1;
+		c.gridy = 3;
 		east.add(connectButton2, c);
 		
 		c.gridx = 0;
-		c.gridy = 2;
+		c.gridy = 4;
 		east.add(delayLabel2, c);
-		
 	}
 	
 //	public void refresh(byte[] data, int camera){
@@ -126,8 +152,7 @@ public class CameraViewer extends JFrame implements ActionListener {
 	        icon = new ImageIcon();
 	        JLabel label = new JLabel(icon);
 	        add(label, BorderLayout.CENTER);
-	   //     this.setSize(200, 200);
-	        setBackground(Color.RED);
+	        setBackground(Color.BLACK);
 	    }
 	        
 	    public void refresh(byte[] data) {
@@ -148,7 +173,14 @@ public class CameraViewer extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
+		String address = JOptionPane.showInputDialog("Input: Camera Address");
+		
+		if(e.getSource().equals(connectButton1)){
+			
+			
+			
+		}
 		
 	}
 
