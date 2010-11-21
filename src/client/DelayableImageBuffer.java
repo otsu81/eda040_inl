@@ -13,6 +13,10 @@ public class DelayableImageBuffer {
 	private static final int MAX_SIZE = 100;
 	
 	private LinkedList<Image> buffer;
+	
+	public DelayableImageBuffer() {
+		buffer = new LinkedList<Image>();
+	}
 
 	/**
 	 * 
@@ -23,6 +27,7 @@ public class DelayableImageBuffer {
 		if (buffer.size() > MAX_SIZE) {
 			buffer.pop();
 		}
+		notifyAll();
 	}
 
 	/**
@@ -30,7 +35,15 @@ public class DelayableImageBuffer {
 	 * @return
 	 */
 	public synchronized Image getCurrent() {
-		return null;
+		while (buffer.isEmpty()) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return buffer.pop();
 	}
 
 	/**
