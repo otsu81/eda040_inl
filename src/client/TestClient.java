@@ -1,30 +1,28 @@
 package client;
 
-import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import server.ImageBuffer;
 
 public class TestClient extends JFrame {
 	
 	public TestClient() {
 		super("blalasdf");
 		CameraClient client = new CameraClient();
-		DelayableImageBuffer bfr = client.connect("localhost", 12345);
+		DelayableImageBuffer bfr = client.connect("130.235.232.88", 12345);
 		JLabel lbl = new JLabel();
 		setSize(500,500);
 		add(lbl);
 		pack();
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		long prev = 0;
 		while (true) {
-			client.Image im = bfr.getCurrent();
-			System.out.println(im.getImagedata());
+			client.CameraImage im = bfr.getCurrent();
+			System.out.println(System.currentTimeMillis() - prev);
 			ImageIcon icn = new ImageIcon(im.getImagedata());
 			lbl.setIcon(icn);
+			prev = System.currentTimeMillis();
 		}
 	}
 

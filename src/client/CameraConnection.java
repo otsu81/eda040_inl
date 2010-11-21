@@ -66,7 +66,7 @@ public class CameraConnection extends Thread {
 				}
 				//log.debug("Total read: " + totRead + " size: " + n);
 				baos.close();
-				buffer.offer(new Image(baos.toByteArray()));
+				buffer.offer(new CameraImage(baos.toByteArray()));
 			}
 			
 		} catch (UnknownHostException e) {

@@ -12,17 +12,17 @@ import java.util.LinkedList;
 public class DelayableImageBuffer {
 	private static final int MAX_SIZE = 100;
 	
-	private LinkedList<Image> buffer;
+	private LinkedList<CameraImage> buffer;
 	
 	public DelayableImageBuffer() {
-		buffer = new LinkedList<Image>();
+		buffer = new LinkedList<CameraImage>();
 	}
 
 	/**
 	 * 
 	 * @param im
 	 */
-	public synchronized void offer(Image im) {
+	public synchronized void offer(CameraImage im) {
 		buffer.offer(im);
 		if (buffer.size() > MAX_SIZE) {
 			buffer.pop();
@@ -34,7 +34,7 @@ public class DelayableImageBuffer {
 	 * 
 	 * @return
 	 */
-	public synchronized Image getCurrent() {
+	public synchronized CameraImage getCurrent() {
 		while (buffer.isEmpty()) {
 			try {
 				wait();
