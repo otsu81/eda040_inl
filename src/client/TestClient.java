@@ -9,7 +9,7 @@ public class TestClient extends JFrame {
 	public TestClient() {
 		super("blalasdf");
 		CameraClient client = new CameraClient();
-		DelayableImageBuffer bfr = client.connect("130.235.232.88", 12345);
+		DelayableImageBuffer bfr = client.connect("localhost", 12345);
 		JLabel lbl = new JLabel();
 		setSize(500,500);
 		add(lbl);
