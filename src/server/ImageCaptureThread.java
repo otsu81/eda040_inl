@@ -27,16 +27,22 @@ public class ImageCaptureThread extends Thread {
 //		this.axis = new Axis211A(address, port);
 		data = new byte[Axis211A.IMAGE_BUFFER_SIZE];
 		axis.connect();
-		run();
 	}
 	
 	public void run() {
 
-		while(true){
-			
-			readBytes = axis.getJPEG(data, 0);
+		long t, diff;
+		t = System.currentTimeMillis();
+		while(true) {
+			t += 40;
+ 			readBytes = axis.getJPEG(data, 0);
 			imageBuffer.addImage(new ServerImage(data, readBytes));
-			
+			diff = t - System.currentTimeMillis();
+			try {
+				Thread.sleep(diff);
+			} catch (InterruptedException e) {
+				// TODO: handle exception
+			}
 		}
 		
 	}
