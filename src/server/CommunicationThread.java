@@ -52,7 +52,7 @@ public class CommunicationThread extends Thread {
 					
 					long diff = System.currentTimeMillis() - prevImage;
 					if (server.getMode() == ServerMode.MOVIE || diff > 5000) {
-						int size = image.getReadBytes();
+						int size = image.getSize();
 						dos.writeInt(size);
 						dos.write(image.getData(), 0, size);
 						dos.flush();

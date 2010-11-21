@@ -11,12 +11,12 @@ package server;
 public class ServerImage {
 
 	private byte[] data;
-	private int readBytes;
+	private int size;
 	
-	public ServerImage(byte[] data, int readBytes){
+	public ServerImage(byte[] data, int size){
 		
 		this.data = data;
-		this.readBytes = readBytes;
+		this.size = size;
 	}
 	
 	/**
@@ -27,8 +27,12 @@ public class ServerImage {
 		return data;
 	}
 
-	public int getReadBytes() {
-		return readBytes;
+	/**
+	 * 
+	 * @return size of image
+	 */
+	public int getSize() {
+		return size;
 	}
 	
 }
