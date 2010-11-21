@@ -1,6 +1,5 @@
 package server;
 
-import java.util.ArrayList;
 
 /**
  * 
@@ -12,10 +11,10 @@ import java.util.ArrayList;
 
 public class ImageBuffer {
 
-	private ArrayList<ServerImage> images;
+	/*private LinkedList<ServerImage> images;
 	
 	public ImageBuffer(){
-		images = new ArrayList<ServerImage>();
+		images = new LinkedList<ServerImage>();
 	}
 	
 	public void addImage(ServerImage image){
@@ -24,4 +23,28 @@ public class ImageBuffer {
 		
 	}
 	
+	public ServerImage getImage() {
+		return images.pop();
+	}*/
+	
+	ServerImage image;
+	
+	public synchronized void setImage(ServerImage image){
+		this.image = image;
+		notifyAll();
+	}
+	
+	public synchronized ServerImage getNextImage() {
+		while (image == null) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		ServerImage tmpImage = image;
+		image = null;
+		return tmpImage;
+	}	
 }

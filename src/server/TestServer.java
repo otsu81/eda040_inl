@@ -6,8 +6,6 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import javax.security.auth.login.LoginContext;
-
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
@@ -44,7 +42,7 @@ public class TestServer {
 				dos.write(bytes, 0, read);
 				dos.flush();
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(40);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

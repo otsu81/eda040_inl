@@ -25,8 +25,8 @@ public class ImageCaptureThread extends Thread {
 	 * 
 	 * @param imageBuffer
 	 */
-	public ImageCaptureThread(ImageBuffer imageBuffer, String hostAddress, int port) {
-		this.imageBuffer = imageBuffer;
+	public ImageCaptureThread(CameraServer server) {
+		this.imageBuffer = server.getImageBuffer();
 		this.axis = new Axis211A();
 //		this.axis = new Axis211A(address, port);
 		data = new byte[Axis211A.IMAGE_BUFFER_SIZE];
@@ -41,7 +41,7 @@ public class ImageCaptureThread extends Thread {
 		while(true) {
 			t += 40;
  			readBytes = axis.getJPEG(data, 0);
-			imageBuffer.addImage(new ServerImage(data, readBytes));
+			imageBuffer.setImage(new ServerImage(data, readBytes));
 			diff = t - System.currentTimeMillis();
 			try {
 				Thread.sleep(diff);
